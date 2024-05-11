@@ -4,6 +4,7 @@ import {
   text,
   uniqueIndex,
   integer,
+  numeric,
 } from "drizzle-orm/sqlite-core";
 const boolean = (col: string) => integer(col, { mode: "boolean" });
 const timestamp = (col: string) => integer(col, { mode: "timestamp" });
@@ -94,9 +95,14 @@ export const teamsRelations = relations(teams, ({ one }) => ({
   }),
 }));
 
-// export const plans = sqliteTable("plans", {
-// todo: add plans table schema
-// });
+export const plans = sqliteTable("plans", {
+  id: integer("id").primaryKey().notNull(),
+  name: text("name").notNull(),
+  price: integer("price").notNull(),
+  createdAt: timestamp("createdAt").notNull(),
+  updatedAt: timestamp("updatedAt").notNull(),
+  isDeleted: boolean("isDeleted").default(false)
+});
 
 // export const subscriptions = sqliteTable("subscriptions", {
 //   // todo: add subscriptions table schema
