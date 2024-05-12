@@ -11,11 +11,12 @@ export const plansRouter = router({
     }))
     .mutation(async ({input})=>{
         const {planName, planPrice} = input;
-        db.insert(schema.plans).values({
+        await db.insert(schema.plans).values({
             name:planName,
             price: planPrice,
             createdAt: new Date(),
-            updatedAt: new Date()
+            updatedAt: new Date(),
+            isDeleted:false
         })
         return {success:true}
     }),
