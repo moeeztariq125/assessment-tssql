@@ -80,4 +80,5 @@ If you were to introduce two more props to plans:
 How would this affect the current plan upgrade calculation?
 
 ### answer here:
----
+---1. This would not cause any changes as the number of users are always the same. Unless the number of users differ betweem the plans. In that case, No. of users are also considered an offering and evaluated.
+---2. The daily rate of every extra user will be calculated and then subtracted from the upgraded plan.
